@@ -1,6 +1,6 @@
-# 😀😄😂😭 Awesome Sentiment Analysis 😥😟😱😤
+# 😀😄😂😭 Awesome Sentiment Analysis 😥😟😱😤  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
-A curated list of Sentiment Analysis methods, implementations and misc.
+Curated list of Sentiment Analysis methods, implementations and misc.
 
 > Sentiment Analysis is the field of study that analyzes people's opinions, sentiments, evaluations, attitudes, and emotions from written languages. (Liu 2012)
 
@@ -23,6 +23,7 @@ A curated list of Sentiment Analysis methods, implementations and misc.
     - [Ruby](#ruby)
     - [CSharp](#csharp)
 - [SaaS APIs](#saas-apis)
+- [Web Apps](#web-apps)
 - [Contributing](#contributing)
 
 <!-- /TOC -->
@@ -40,7 +41,7 @@ Sentiment Analysis happens at various levels:
 
 Most recent research focuses on the aspect-based approaches. But not all opensource implementations are caught up yet.
 
-There are many different approaches to solve the problem. Lexical methods, for example, look at the frequency of words expressing positive and negative sentiment (from i.e. SentiWordNet) occuring in the given sentence. Supervised Machine Learning, such as Naive Bayes and Support Vector Machine (SVM), can be used with training data. Since training examples are difficult to obtain, Unsupervised Machine Learning, such as Latent Dirichlet Allocation (LDA) and word embeddings (Word2Vec) are also used on large unlabeled datasets. Recent works also apply Deep Learning methods such as Convolutional Neural Network (CNN) and Long Short-term Memory (LSTM), as well as their attention-based variants. You will find more details in the survey papers.
+There are many different approaches to solve the problem. Lexical methods, for example, look at the frequency of words expressing positive and negative sentiment (from i.e. SentiWordNet) occurring in the given sentence. Supervised Machine Learning, such as Naive Bayes and Support Vector Machine (SVM), can be used with training data. Since training examples are difficult to obtain, Unsupervised Machine Learning, such as Latent Dirichlet Allocation (LDA) and word embeddings (Word2Vec) are also used on large unlabeled datasets. Recent works also apply Deep Learning methods such as Convolutional Neural Network (CNN) and Long Short-term Memory (LSTM), as well as their attention-based variants. You will find more details in the survey papers.
 
 ## Survey Papers 
 
@@ -68,9 +69,13 @@ SemEval14-Task4: Annotated aspects and sentiments of laptops and restaurants rev
 
 Stanford Sentiment Treebank: Sentiment dataset with fine-grained sentiment annotations [[web]](http://nlp.stanford.edu/sentiment/code.html) [[paper]](http://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf)
 
+Multidimensional Lexicon for Interpersonal Stancetaking [[web]](https://github.com/umashanthi-research/multidimensional-stance-lexicon) [[paper]](https://www.cc.gatech.edu/~jeisenst/papers/pavalanathan-acl-camera-ready.pdf)
+
 ## Open Source Implementations
 
 The characteristics of each implementation are described.
+
+_**Caveats**: A key problem in sentiment analysis is its sensitivity to the domain from which either training data is sourced, or on which a sentiment lexicon is built. [[♠]](http://www.springer.com/gp/book/9783319389707) Be careful assuming off-the-shelf implementations will work for your problem, make sure to look at the model assumptions and validate whether they’re accurate on your own domain [[♦]](https://lobste.rs/s/zsfqyk/curated_list_sentiment_analysis_methods/comments/ge671n#c_ge671n)._
 
 ### NodeJS
 [thisandagain/sentiment]( https://github.com/thisandagain/sentiment): Lexical, Dictionary-based, AFINN-based.
@@ -89,13 +94,22 @@ The characteristics of each implementation are described.
 
 [vivekn/sentiment](https://github.com/vivekn/sentiment): Supervised Machine Learning, Naive Bayes Classifier. [[paper]](https://arxiv.org/abs/1305.6143)
 
-[xiaohan2012/twitter-sent-dnn](https://github.com/xiaohan2012/twitter-sent-dnn): Supervised Machine Learning, Deep Learning, Convolutional Neural Network. [[paper]](http://nal.co/papers/Kalchbrenner_DCNN_ACL14)
+[xiaohan2012/twitter-sent-dnn](https://github.com/xiaohan2012/twitter-sent-dnn): Supervised Machine Learning, Deep Learning, Convolutional Neural Network. [[paper]](http://phd.nal.co/papers/Kalchbrenner_DCNN_ACL14)
+
+[abdulfatir/twitter-sentiment-analysis](https://github.com/abdulfatir/twitter-sentiment-analysis): Sentiment analysis on tweets using Naive Bayes, SVM, CNN, LSTM, etc.
 
 [kevincobain2000/sentiment_classifier](https://github.com/kevincobain2000/sentiment_classifier): Supervised Machine Learning, Naive Bayes Classifier, Max Entropy Classifier, SentiWordNet.
 
 [pedrobalage/SemevalAspectBasedSentimentAnalysis](https://github.com/pedrobalage/SemevalAspectBasedSentimentAnalysis): Aspect-Based, Supervised Machine Learning, Conditional Random Field.
 
 [ganeshjawahar/mem_absa](https://github.com/ganeshjawahar/mem_absa): Aspect-Based, Supervised Machine Learning, Deep Learning, Attention-based, External Memory. [[paper]](https://arxiv.org/abs/1605.08900)
+
+[openai/generating-reviews-discovering-sentiment](https://github.com/openai/generating-reviews-discovering-sentiment): Deep Learning, byte mLSTM [[paper]](https://arxiv.org/abs/1704.01444)
+
+[yiyang-gt/social-attention](https://github.com/yiyang-gt/social-attention): Deep Learning, Attention-based. Uses authors'
+position in the social network to aide sentiment analysis. [[paper]](https://arxiv.org/pdf/1511.06052.pdf).
+
+[thunlp/NSC](https://github.com/thunlp/NSC): Deep Learning, Attention-based. Uses user and production information.[[paper]](http://anthology.aclweb.org/D/D16/D16-1171.pdf).
 
 ### R
 [timjurka/sentiment](https://github.com/timjurka/sentiment): Supervised Machine Learning, Naive Bayes Classifier.
@@ -114,13 +128,16 @@ The characteristics of each implementation are described.
 
 ## SaaS APIs
 
-Google Cloud Natural Language API [[web]](https://cloud.google.com/natural-language/)
+* Google Cloud Natural Language API [[web]](https://cloud.google.com/natural-language/)
+* IBM Watson Alchemy Language [[web]](https://www.ibm.com/watson/developercloud/alchemy-language.html)
+* Microsoft Cognitive Service [[web]](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)
+* Aylien [[web]](https://developer.aylien.com/text-api-demo)
+* Indico [[web]](https://www.indico.io/)
+* Rosette API [[web]](https://developer.rosette.com/)
 
-IBM Watson Alchemy Language [[web]](https://www.ibm.com/watson/developercloud/alchemy-language.html)
+## Web Apps
 
-Microsoft Cognitive Service [[web]](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)
-
-Aylien [[web]](https://developer.aylien.com/text-api-demo)
+* Textalytic [[web]](https://www.textalytic.com)
 
 ## Contributing
 
